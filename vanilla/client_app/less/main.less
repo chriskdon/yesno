@@ -20,17 +20,33 @@
 }
 
 .answer-box {
-  div {
+  .answer {
+    position: relative;
     float: left;
     width: 50%;
     padding: 5px 10px;
-  }
 
-  .answer-yes {
-    background-color: @color-answer-yes;
-  }
+    span {
+      position: relative;
+      z-index: 5;
+    }
 
-  .answer-no {
-    background-color: @color-anser-no;
+    .answer-bar {
+      z-index: 4;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+
+    &.answer-yes .answer-bar {
+      background-color: @color-answer-yes;
+      width: 65%;
+    }
+
+    &.answer-no .answer-bar {
+      background-color: @color-anser-no;
+      width: 35%
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "yesno-baconjs",
+  "name": "yesno-vanilla",
   "version": "1.0.0",
-  "description": "Yes/No poll app written using the BaconJS FRP library",
+  "description": "Yes/No poll app written using vanilla js",
   "main": "server_app/index.js",
   "scripts": {
     "start": "node server_app/index.js",
