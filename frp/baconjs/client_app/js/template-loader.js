@@ -1,25 +1,22 @@
 var cache = [];
 
-function getTemplateAjax(path, callback) {
+function getTemplateAjax(path) {
+  var def = $.Deferred();
+
   if(cache[path]) {
-    if(callback) { callback(cache[path]); }
-    return;
+    def.resolve(cache[path]);
+  } else {
+    $.ajax({
+      url: path,
+      success: function(data) {
+        var template = Handlebars.compile(data);
+        cache[path] = template;
+        def.resolve(template);
+      }
+   });
   }
 
-  var source;
-  var template;
-
-  $.ajax({
-    url: path,
-    success: function(data) {
-      source    = data;
-      template  = Handlebars.compile(source);
-      cache[path] = template;
-
-      //execute the callback if passed
-      if (callback) { callback(template); }
-    }
- });
+ return def.promise();
 }
 
 module.exports = getTemplateAjax;

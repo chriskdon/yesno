@@ -13,6 +13,7 @@ var watchLess = require('gulp-watch-less');
 var path = require('path');
 var rename = require("gulp-rename");
 var exec = require('child_process').exec;
+var watch = require('gulp-watch');
 
 var config = {
   less: {
@@ -45,8 +46,18 @@ gulp.task('connect', function(cb) {
   app.stderr.on('data', function(data) { console.error(data); });
 });
 
-gulp.task('less', bundleLess(false));
-gulp.task('less:watch', ['less'], bundleLess(true));
+gulp.task('less', function() {
+  return gulp.src(config.less.src)
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(rename(config.less.destFile))
+    .pipe(gulp.dest(config.less.destDir));
+});
+
+gulp.task('less:watch', ['less'], function() {
+  gulp.watch(config.less.src, ['less']);
+});
 
 gulp.task('js', bundleJs); // so you can run `gulp js` to build the file
 gulp.task('js:watch', ['js'], function() {
@@ -54,21 +65,6 @@ gulp.task('js:watch', ['js'], function() {
   watchifyClient.on('log', gutil.log); // Output build log
 });
 
-function bundleLess(watch) {
-  return function() {
-    var pipeline = gulp.src(config.less.src);
-
-    if(watch) { pipeline.pipe(watchLess(config.less.src)); }
-
-    pipeline.pipe(less({
-       paths: [ path.join(__dirname, 'less', 'includes') ]
-     }))
-     .pipe(rename(config.less.destFile))
-     .pipe(gulp.dest(config.less.destDir));
-
-     return pipeline;
-  }
-}
 
 function bundleJs() {
   return watchifyClient.bundle()

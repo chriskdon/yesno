@@ -1,3 +1,36 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+// http://www.colourlovers.com/palette/56122/Sweet_Lolly
+@color-green: #00C176;
+@color-red: #FF003C;
+
+@color-answer-yes: @color-green;
+@color-anser-no: @color-red;
+
+.question-text-container {
+  margin-bottom: 20px;
+
+  .question {
+    font-size: 30px;
+    font-weight: lighter;
+    color: lighten(black, 60%);
+  }
+}
+
+.answer-box {
+  div {
+    float: left;
+    width: 50%;
+    padding: 5px 10px;
+  }
+
+  .answer-yes {
+    background-color: @color-answer-yes;
+  }
+
+  .answer-no {
+    background-color: @color-anser-no;
+  }
+}

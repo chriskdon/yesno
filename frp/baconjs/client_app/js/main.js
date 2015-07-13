@@ -1,7 +1,7 @@
 var tload = require('./template-loader');
 
-tload('templates/test.handlebars', function(template) {
-  console.log(template());
-});
+var $mainContainer = $("#main");
 
-console.log("Init");
+tload('templates/main.handlebars').done(function(template) {
+  $mainContainer.html(template());
+});
