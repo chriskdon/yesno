@@ -12,8 +12,12 @@ function registerTemplates(templates) {
   })
 }
 
-registerTemplates(templates).done(function() {
-  tload('templates/main.handlebars').done(function(template) {
-    $mainContainer.html(template());
+function initAppContainer($appContainer) {
+  registerTemplates(templates).done(function() {
+    tload('templates/main.handlebars').done(function(template) {
+      $appContainer.html(template());
+    });
   });
-});
+}
+
+initAppContainer($mainContainer);
