@@ -1,15 +1,17 @@
-<div class="row question-text-container">
-  <div class="col-xs-3 question">Is the sky actaully blue?</div>
-</div>
-<div class="row">
-  <div class="col-xs-3 answer-box">
-    <div class="answer answer-yes">
-      <div class="answer-bar"></div>
-      <span>Yes</span>
+<div class="row question-container">
+  <div class="col-xs-12">
+    <div class="row question-text-container">
+      <div class="col-xs-3 question">{{question}}</div>
     </div>
-    <div class="answer answer-no">
-      <span>No</span>
-      <div class="answer-bar"></div>
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="answer-box">
+          <span class="label yes">Yes</span>
+          <span class="label no">No</span>
+          <div class="answer-bar yes" style='right: {{yes}}%'></div>
+          <div class="answer-bar no" style='left: {{no}}%'></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

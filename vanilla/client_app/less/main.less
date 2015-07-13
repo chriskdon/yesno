@@ -9,25 +9,28 @@
 @color-answer-yes: @color-green;
 @color-anser-no: @color-red;
 
-.question-text-container {
+.question-container {
   margin-bottom: 20px;
 
-  .question {
-    font-size: 30px;
-    font-weight: lighter;
-    color: lighten(black, 60%);
+  .question-text-container {
+    margin-bottom: 20px;
+
+    .question {
+      font-size: 30px;
+      font-weight: lighter;
+      color: lighten(black, 60%);
+    }
   }
-}
 
-.answer-box {
-  .answer {
+  .answer-box {
     position: relative;
-    float: left;
-    width: 50%;
-    padding: 5px 10px;
+    height: 30px;
 
-    span {
-      position: relative;
+    .label {
+      position: absolute;
+
+      top: 50%;
+      transform: translateY(-50%);
       z-index: 5;
     }
 
@@ -35,18 +38,29 @@
       z-index: 4;
       position: absolute;
       top: 0;
-      left: 0;
       height: 100%;
     }
 
-    &.answer-yes .answer-bar {
-      background-color: @color-answer-yes;
-      width: 65%;
+    .yes {
+      &.label {
+        left: 5px;
+      }
+
+      &.answer-bar {
+        background-color: @color-answer-yes;
+        left: 0;
+      }
     }
 
-    &.answer-no .answer-bar {
-      background-color: @color-anser-no;
-      width: 35%
+    .no {
+      &.label {
+        right: 5px;
+      }
+
+      &.answer-bar {
+        background-color: @color-anser-no;
+        right: 0;
+      }
     }
   }
 }
