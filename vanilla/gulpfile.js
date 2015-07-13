@@ -17,7 +17,8 @@ var watch = require('gulp-watch');
 
 var config = {
   less: {
-    src: 'client_app/less/**/*.less',
+    src: 'client_app/less/main.less',
+    watch: 'client_app/less/**/*.less',
     destDir: './public/css/',
     destFile: 'app.compiled.css'
   },
@@ -56,7 +57,7 @@ gulp.task('less', function() {
 });
 
 gulp.task('less:watch', ['less'], function() {
-  gulp.watch(config.less.src, ['less']);
+  gulp.watch(config.less.watch, ['less']);
 });
 
 gulp.task('js', bundleJs); // so you can run `gulp js` to build the file

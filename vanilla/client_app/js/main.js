@@ -2,14 +2,14 @@ var tload = require('./template-loader');
 
 var $mainContainer = $("#main");
 
-var templates = ['main', 'question'];
+var templates = ['main', 'question', 'new-question', 'search'];
 
 function registerTemplates(templates) {
   return $.when.apply($, templates.map(function(templateName) {
     return tload('templates/' + templateName + '.handlebars').done(function(template) {
       Handlebars.registerPartial(templateName, template);
-    }));
-  })
+    });
+  }));
 }
 
 function initAppContainer($appContainer) {
