@@ -24,7 +24,6 @@
     "watchify": "^3.2.3"
   },
   "dependencies": {
-    "baconjs": "^0.7.70",
     "express": "^4.13.1"
   }
 }
