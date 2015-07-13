@@ -1,0 +1,20 @@
+{
+  "name": "yesno-baconjs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/chriskdon/yesno",
+  "authors": [
+    "Chris Kellendonk <ckellendonk@konradgroup.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "handlebars": "~3.0.3"
+  }
+}
