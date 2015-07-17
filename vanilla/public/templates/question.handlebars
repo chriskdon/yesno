@@ -1,15 +1,20 @@
 <!--
 {
-  question: <string>  // The text of the question
-  yes:  <number>      // The integer percentage of yes answers
-  no:   <number>      // The integer percetnage of no answers
+  questionId: <string>  // Unique ID for the question
+  question:   <string>  // The text of the question
+  yes:  <number>        // The integer percentage of yes answers
+  no:   <number>        // The integer percetnage of no answers
 }
 -->
 
-<div class="row question-container">
+<div class="row question-container" data-id="{{questionId}}">
   <div class="col-xs-12">
     <div class="row question-text-container">
-      <div class="col-xs-12 question">{{question}}</div>
+      <div class="col-xs-10 question">{{question}}</div>
+      <div class="col-xs-2">
+        <input type="button" class="form-control btnYes" value="Yes" />
+        <input type="button" class="form-control btnNo" value="No" />
+      </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
